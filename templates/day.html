@@ -36,15 +36,17 @@
         <div>
           <div class="panel panel-primary">
             <div class="panel-heading">
-              <h3 class="panel-title">January 28, 2020</h3>
+              <h3 class="panel-title">{{ date }}</h3>
             </div>
 
             <div class="panel-body">
 
-              <form method="POST" action="/">
+              <form method="POST" action="{{ url_for('view', date='20200510') }}">
                 <div class="form-group">
-                  <select class="form-control">
-                    <option>1</option>
+                  <select class="form-control" name="food-select">
+                    {% for food_el in food_results %}
+                    <option value="{{ food_el.id }}">{{ food_el.name }}</option>
+                    {% endfor %}
                   </select>
                 </div>
 
