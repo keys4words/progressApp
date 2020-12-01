@@ -1,30 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+{% extends 'base.html' %}
+
+{% block title %}
 
     <title>Food Tracker | Add Food</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="{{ url_for('static', filename='bootstrap.min.css') }}" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="{{ url_for('static', filename='theme.css') }}" rel="stylesheet">
+{% endblock %}
 
-  </head>
 
-  <body>
+{% block body %}
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">Food Tracker</a>
+          <a class="navbar-brand" href="{{ url_for('index') }}">Food Tracker</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="#">Home</a></li>
-            <li class="active"><a href="#">Add Food Item</a></li>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li class="active"><a href="{{ url_for('food') }}">Add Food Item</a></li>
           </ul>
         </div>
       </div>
@@ -72,6 +65,7 @@
                 <li><a>Fat: <span class="badge">{{ food.fat }}</span></a></li>
                 <li><a>Calories: <span class="badge">{{ food.calories }}</span></a></li>
               </ul>
+              <div class="page-header"></div>
               {% endfor %}
             </div>
 
@@ -81,6 +75,4 @@
 
     </div>
 
-  </body>
-
-</html>
+{% endblock %}
